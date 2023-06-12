@@ -48,7 +48,7 @@ if (isset($_POST['query']) && !empty($_POST['query']) &&
   $hostname = trim($_POST['routers']);
   $parameter = trim(htmlspecialchars($_POST['parameter']));
 
-  if (filter_var((string($parameter), FILTER_VALIDATE_IP) == False) {
+  if (filter_var(($parameter, FILTER_VALIDATE_IP) == False) {
       $error = "Invalid IP address.";
       print(json_encode(array('error' => $error)));
       return;
