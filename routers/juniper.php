@@ -26,7 +26,7 @@ require_once('includes/utils.php');
 final class Juniper extends Router {
   protected function build_bgp($parameter, $vrf = false) {
     $cmd = new CommandBuilder();
-    $cmd->add('show route', $parameter, 'protocol bgp table');
+    $cmd->add('show route', $parameter, 'protocol bgp table detail');
 
     if($vrf === false) {
       if (match_ipv6($parameter, false)) {

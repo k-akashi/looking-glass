@@ -48,6 +48,12 @@ if (isset($_POST['query']) && !empty($_POST['query']) &&
   $hostname = trim($_POST['routers']);
   $parameter = trim($_POST['parameter']);
 
+  if (filter_var($parameter, FILTER_VARLIDATE_IP) == False) {
+      $error = "Invalid IP address.";
+      print(json_encode(array('error' => $error)));
+      return;
+  }
+
   // Check if query is disabled
   if (!isset($config['doc'][$query]['command'])) {
     $error = 'This query has been disabled in the configuration.';
