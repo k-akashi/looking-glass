@@ -25,6 +25,10 @@ require_once('includes/antispam.php');
 require_once('includes/captcha.php');
 require_once('includes/utils.php');
 
+$error = 'This query has been disabled in the configuration.';
+print(json_encode(array('error' => $error)));
+return;
+
 // From where the user *really* comes from.
 $requester = get_requester_ip();
 
@@ -40,10 +44,6 @@ if (isset($_POST['doc']) && !empty($_POST['doc'])) {
   print(json_encode($config['doc'][$query]));
   return;
 }
-
-$error = 'This query has been disabled in the configuration.';
-print(json_encode(array('error' => $error)));
-return;
 
 if (isset($_POST['query']) && !empty($_POST['query']) &&
     isset($_POST['routers']) && !empty($_POST['routers']) &&
