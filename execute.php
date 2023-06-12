@@ -41,6 +41,10 @@ if (isset($_POST['doc']) && !empty($_POST['doc'])) {
   return;
 }
 
+$error = 'This query has been disabled in the configuration.';
+print(json_encode(array('error' => $error)));
+return;
+
 if (isset($_POST['query']) && !empty($_POST['query']) &&
     isset($_POST['routers']) && !empty($_POST['routers']) &&
     isset($_POST['parameter']) && !empty($_POST['parameter'])) {
